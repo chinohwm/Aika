@@ -1,0 +1,32 @@
+C:/Users/Sebas/Desktop/Saberes/ffmpeg-2025-05-01-git-707c04fe06-full_build/bin/ffmpeg.exe -hide_banner -y -y -r 24 -start_number 0 -start_number_range 1 -i C:/Users/Sebas/Desktop/Saberes/objetos/fotograma%04d.png -crf 23 -preset medium -profile:v baseline -pix_fmt yuv420p C:/Users/Sebas/Desktop/Saberes/objetos/vortice.mkv
+=====================================================
+Input #0, image2, from 'C:/Users/Sebas/Desktop/Saberes/objetos/fotograma%04d.png':
+  Duration: 00:00:00.24, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba64be(pc, gbr/unknown/unknown), 1920x1080 [SAR 11811:11811 DAR 16:9], 25 fps, 25 tbr, 25 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 000001e3d73b7180] using SAR=1/1
+[libx264 @ 000001e3d73b7180] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001e3d73b7180] profile Constrained Baseline, level 4.0, 4:2:0, 8-bit
+[libx264 @ 000001e3d73b7180] 264 - core 165 r3215 32c3b80 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=0 ref=3 deblock=1:0:0 analyse=0x1:0x111 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=0 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=6 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=250 keyint_min=24 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, matroska, to 'C:/Users/Sebas/Desktop/Saberes/objetos/vortice.mkv':
+  Metadata:
+    encoder         : Lavf62.0.102
+  Stream #0:0: Video: h264 (H264 / 0x34363248), yuv420p(tv, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 24 fps, 1k tbn
+    Metadata:
+      encoder         : Lavc62.1.102 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+[out#0/matroska @ 000001e3d7321740] video:15KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 4.320828%
+frame=    6 fps=0.0 q=-1.0 Lsize=      16KiB time=00:00:00.25 bitrate= 516.1kbits/s speed=1.56x    
+[libx264 @ 000001e3d73b7180] frame I:1     Avg QP:15.52  size:  9000
+[libx264 @ 000001e3d73b7180] frame P:5     Avg QP:24.09  size:  1166
+[libx264 @ 000001e3d73b7180] mb I  I16..4: 98.4%  0.0%  1.6%
+[libx264 @ 000001e3d73b7180] mb P  I16..4:  0.4%  0.0%  0.3%  P16..4:  1.7%  0.3%  0.0%  0.0%  0.0%    skip:97.3%
+[libx264 @ 000001e3d73b7180] coded y,uvDC,uvAC intra: 1.5% 0.0% 0.0% inter: 0.0% 0.0% 0.0%
+[libx264 @ 000001e3d73b7180] i16 v,h,dc,p: 98%  1%  2%  0%
+[libx264 @ 000001e3d73b7180] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 19% 44%  2%  2%  2%  2%  2%  2%
+[libx264 @ 000001e3d73b7180] i8c dc,h,v,p: 100%  0%  0%  0%
+[libx264 @ 000001e3d73b7180] ref P L0: 49.2% 40.2% 10.6%
+[libx264 @ 000001e3d73b7180] kb/s:474.62
