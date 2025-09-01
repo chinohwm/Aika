@@ -14,10 +14,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public Transform TocandoPiso;//detecta el piso
     public float RadioDePiso = 0.1f;//area de deteccion del piso
     public LayerMask CapaDePiso;//nose aun
+    private Animator animator;// controla las animaciones
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); // busca el componente y lo guarda aca 
         spriteRenderer = GetComponent<SpriteRenderer>(); // busca el sprite renderer
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, salto);
         }
-    }
+        animator.SetFloat("velocidad", Mathf.Abs(movimiento));
+        }
     private void FixedUpdate()//se analiza a cada rato 
     {
         esPiso = Physics2D.OverlapCircle(TocandoPiso.position,RadioDePiso,CapaDePiso);
