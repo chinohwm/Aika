@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
 
-    public float velocidad = 4;//velocidad del jugador
+    public float velocidad = 7;//velocidad del jugador
     private Rigidbody2D rb2d;   // El componente de fisicas
     private float movimiento; // la variable de movimiento 
     private SpriteRenderer spriteRenderer; // referencia al sprite renderer
