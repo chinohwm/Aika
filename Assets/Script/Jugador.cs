@@ -15,11 +15,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float RadioDePiso = 0.1f;//area de deteccion del piso
     public LayerMask CapaDePiso;//nose aun
     public Animator animator;// controla las animaciones
+    public AudioSource audioSource;//controla los sonidos del jugador ej saltar
+    public AudioClip saltoSound; // sonido de salto
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); // busca el componente y lo guarda aca 
         spriteRenderer = GetComponent<SpriteRenderer>(); // busca el sprite renderer
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         if (Input.GetButton("Jump") && esPiso)//si se preciona el espacio y detecta el piso
         {
+            audioSource.PlayOneShot(saltoSound);
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, salto);
             animator.SetBool("correr", false);
             animator.SetBool("salto", true);
