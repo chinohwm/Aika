@@ -1,6 +1,8 @@
 using System;
 using Unity.Mathematics;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -39,7 +41,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             spriteRenderer.flipX = (movimiento < 0);//si el personaje se mueve en el eje x para numeros negativos rota
             animator.SetBool("salto", false);
-            
+
         }
         if (Input.GetButton("Jump") && esPiso)//si se preciona el espacio y detecta el piso
         {
@@ -48,10 +50,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
             animator.SetBool("correr", false);
             animator.SetBool("salto", true);
         }
-       
-        }
+
+    }
     private void FixedUpdate()//se analiza a cada rato 
     {
-        esPiso = Physics2D.OverlapCircle(TocandoPiso.position,RadioDePiso,CapaDePiso);
+        esPiso = Physics2D.OverlapCircle(TocandoPiso.position, RadioDePiso, CapaDePiso);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("reiniciar"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
 }
