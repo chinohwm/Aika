@@ -19,6 +19,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public Animator animator;// controla las animaciones
     public AudioSource audioSource;//controla los sonidos del jugador ej saltar
     public AudioClip saltoSound; // sonido de salto
+    public float Tiempodesalto= 0.3f;        // tiempo máximo que se puede mantener presionado el salto
+    public float Fuerzadesalto = 0.5f;  // qué tan fuerte sigue subiendo al mantenerlo
+    private float Contadordesalto;       // contador interno
+    private bool EstamosSaltando;              // si estamos en un salto
 
     void Start()
     {
@@ -43,13 +47,21 @@ public class NewMonoBehaviourScript : MonoBehaviour
             animator.SetBool("salto", false);
 
         }
-        if (Input.GetButton("Jump") && esPiso)//si se preciona el espacio y detecta el piso
-        {
-            audioSource.PlayOneShot(saltoSound);
-            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, salto);
-            animator.SetBool("correr", false);
-            animator.SetBool("salto", true);
-        }
+        if (Input.GetButtonDown("Jump") && esPiso)
+{
+    audioSource.PlayOneShot(saltoSound);
+    rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, salto);
+
+    animator.SetBool("correr", false);
+    animator.SetBool("salto", true);
+}
+
+
+if (Input.GetButtonUp("Jump") && rb2d.linearVelocity.y > 0)
+{
+    rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, rb2d.linearVelocity.y * 0.5f);
+}
+
 
     }
     private void FixedUpdate()//se analiza a cada rato 
@@ -57,11 +69,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         esPiso = Physics2D.OverlapCircle(TocandoPiso.position, RadioDePiso, CapaDePiso);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)//cuando un cuerpo entra
     {
         if (collision.transform.CompareTag("reiniciar"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);//reinicia la esena 
         }
     }
 
