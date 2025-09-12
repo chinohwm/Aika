@@ -1,5 +1,7 @@
 using System;
+using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,11 +21,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public Animator animator;// controla las animaciones
     public AudioSource audioSource;//controla los sonidos del jugador ej saltar
     public AudioClip saltoSound; // sonido de salto
-    public float Tiempodesalto= 0.3f;        // tiempo máximo que se puede mantener presionado el salto
-    public float Fuerzadesalto = 0.5f;  // qué tan fuerte sigue subiendo al mantenerlo
-    private float Contadordesalto;       // contador interno
-    private bool EstamosSaltando;              // si estamos en un salto
+    public AudioClip monedasond;//sonido de moneda
+    private int moneda; // para contar las monedas
+    public TMP_Text nummoneda;//cuenta las monedas
 
+   
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); // busca el componente y lo guarda aca 
@@ -75,6 +77,15 @@ if (Input.GetButtonUp("Jump") && rb2d.linearVelocity.y > 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);//reinicia la esena 
         }
+
+        if (collision.transform.CompareTag("moneda"))
+        {
+            audioSource.PlayOneShot(monedasond);
+            Destroy(collision.gameObject);
+            moneda++;
+            nummoneda.text = moneda.ToString();
+        }
+        
     }
 
 }
