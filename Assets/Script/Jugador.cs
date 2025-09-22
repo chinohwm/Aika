@@ -22,6 +22,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public AudioSource audioSource;//controla los sonidos del jugador ej saltar
     public AudioClip saltoSound; // sonido de salto
     public AudioClip monedasond;//sonido de moneda
+    public AudioClip chek_point; 
     private int moneda; // para contar las monedas
     public TMP_Text nummoneda;//cuenta las monedas
 
@@ -85,7 +86,10 @@ if (Input.GetButtonUp("Jump") && rb2d.linearVelocity.y > 0)
             moneda++;
             nummoneda.text = moneda.ToString();
         }
-        
+        if (collision.transform.CompareTag("nivel"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
 }
