@@ -1446,7 +1446,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1745,7 +1745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -254.84, y: 134}
+  m_AnchoredPosition: {x: -254.4, y: 153.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313305413
@@ -21239,13 +21239,17 @@ PrefabInstance:
       propertyPath: monedasond
       value: 
       objectReference: {fileID: 8300000, guid: 8b78e43391eefab4e8fbf96d5fd776d7, type: 3}
+    - target: {fileID: 5335702383506827591, guid: 88dd6d4b902ae994fbeaa7e19d3ca3ff, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6397974744803751509, guid: 88dd6d4b902ae994fbeaa7e19d3ca3ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.68
+      value: 82.46
       objectReference: {fileID: 0}
     - target: {fileID: 6397974744803751509, guid: 88dd6d4b902ae994fbeaa7e19d3ca3ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 6397974744803751509, guid: 88dd6d4b902ae994fbeaa7e19d3ca3ff, type: 3}
       propertyPath: m_LocalPosition.z

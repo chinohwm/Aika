@@ -25,6 +25,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public AudioClip chek_point; 
     private int moneda; // para contar las monedas
     public TMP_Text nummoneda;//cuenta las monedas
+ 
+    public  GameObject Tiempo ;
 
    
     void Start()
@@ -82,12 +84,20 @@ if (Input.GetButtonUp("Jump") && rb2d.linearVelocity.y > 0)
         if (collision.transform.CompareTag("moneda"))
         {
             audioSource.PlayOneShot(monedasond);
-            Destroy(collision.gameObject);
             moneda++;
             nummoneda.text = moneda.ToString();
+            Destroy(collision.gameObject);
+            if (moneda == 7)
+            {
+                if (Tiempo != null)
+                {
+                    Tiempo.SetActive(true); 
+                }
+            }
         }
         if (collision.transform.CompareTag("nivel"))
         {
+           
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
